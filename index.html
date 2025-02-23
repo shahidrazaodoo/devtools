@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bahalim Travels</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#">
+          <img src="img/logo.png" alt="Bahalim Travels Logo">
+        </a>
+      </div>
+      <div class="nav_center">
+        <h3>99% visas on time</h3>
+        <h1 style="font-weight: 1000;">Get Your Visas, Quick and Easy.</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#Visa">Visa</a></li>
+        <li><a href="#flights">Flights</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section (Slider + Search Bar) -->
+  <section class="hero">
+    <div class="slider">
+      <div><img src="img/image1.jpg" alt="Slide 1"></div>
+      <div><img src="img/image2.jpg" alt="Slide 2"></div>
+      <div><img src="img/image3.jpg" alt="Slide 3"></div>
+      <div><img src="img/image4.jpg" alt="Slide 4"></div>
+      <div><img src="img/image5.jpg" alt="Slide 5"></div>
+      <div><img src="img/image6.jpg" alt="Slide 6"></div>
+    </div>
+    <!-- <h1 class="section">Find Visa & Flights</h1>
+    <div class="search-container">
+      <form id="searchForm" action="#" method="GET">
+        <div class="search-field">
+          <div>
+            <input type="text" id="flight-search" class="search-visa-flights" placeholder="Where to?" required>
+          </div>
+          <div class="search_submit_button">
+            <button type="submit" id="flight-search-btn"><i XMLHttpRequestclass="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </form>
+    </div> -->
+  </section>
+
+  <section id="Visa" class="section">
+    <h2>Popular Visa</h2>
+    <div class="cards" id="visa-cards"></div>
+
+    <script>
+      const VisajsonData = 'data:application/json;charset=utf-8,' + encodeURIComponent(`
+        [
+          {
+            "title": "Azerbaijan",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/Azerbaijan.jpg"
+
+          },
+          {
+            "title": "BAHRAIN",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/BAHRAIN.jpg"
+          },
+          {
+            "title": "China",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/china.jpg"
+          },
+          {
+            "title": "FRANCE",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/FRANCE.jpg"
+          },
+          {
+            "title": "georgia",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/georgia.jpg"
+            
+          },
+          {
+            "title": "Germany",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/Germany.jpg"
+            
+          },
+          {
+            "title": "Indonesia",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/Indonesia.jpg"
+            
+          },
+          {
+            "title": "JAPAN",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/JAPAN.jpg"
+            
+          },
+          {
+            "title": "MOROCCO",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/MOROCCO.jpg"
+            
+          },
+          {
+            "title": "OMAN",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/OMAN.jpg"
+            
+          },
+          {
+            "title": "QATAR",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/QATAR.jpg"
+            
+          },
+          {
+            "title": "russsia",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/russsia.jpg"
+            
+          },
+          {
+            "title": "saudi-arabia",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/saudiarabia.jpg"
+            
+          },
+          {
+            "title": "SINGAPORE",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/SINGAPORE.jpg"
+            
+          },
+          {
+            "title": "USA",
+            "duration": "10, 30, 90 And More Days",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/USA.jpg"
+            
+          }
+        ]
+      `);
+
+      fetch(VisajsonData)
+        .then(response => response.json())
+        .then(data => {
+          const cardsContainer = document.getElementById('visa-cards');
+          data.forEach(visa => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+            <div class="card-content">
+              <img src="${visa.countryImg}" class='card-img'></img>
+              <h3 class="card-title">${visa.title}</h3>
+              <p class="card-duration">${visa.duration}</p>
+              <div class="card-button"><a href="${visa.link}">Apply Now</a></div>
+            </div>
+            `;
+            cardsContainer.appendChild(card);
+          });
+        })
+        .catch(error => console.error('Error fetching tours:', error));
+    </script>
+  </section>
+
+
+  <section id="flights" class="section">
+    <h2>Featured Flights</h2>
+    <div class="cards" id="flight-cards"></div>
+    <script>
+      const flightjsonDataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(`
+        [
+          {
+            "title": "Explore Italy",
+            "price": "$1299",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/image4.jpg"
+
+          },
+          {
+            "title": "Safari in Kenya",
+            "price": "$1999",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/image4.jpg"
+          },
+          {
+            "title": "Dubai Adventure",
+            "price": "$999",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/image4.jpg"
+          },
+          {
+            "title": "Japan Cultural Tour",
+            "price": "$1799",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/image4.jpg"
+          },
+          {
+            "title": "Amazon Rainforest",
+            "price": "***",
+            "link": "https://wa.me/+918005937040" ,
+            "countryImg": "img/image4.jpg"
+            
+          }
+        ]
+      `);
+
+      fetch(flightjsonDataUri)
+        .then(response => response.json())
+        .then(data => {
+          const cardsContainer = document.getElementById('flight-cards');
+          data.forEach(flight => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+            <div class="card-content">
+              <img src="${flight.countryImg}" class='card-img'></img>
+              <h3 class="card-title">${flight.title}</h3>
+              <p class="card-duration">${flight.price}</p>
+              <div class="card-button"><a href="${flight.link}">Book Now</a></div>
+            </div>
+            `;
+            cardsContainer.appendChild(card);
+          });
+        })
+        .catch(error => console.error('Error fetching tours:', error));
+    </script>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="aboutus">
+      <h2>About Us</h2>
+      <p>At Bahalim Travels, we are passionate about creating unforgettable travel experiences for our customers. Whether you're seeking a relaxing getaway, an adventure-packed journey, or a cultural exploration, we are dedicated to providing personalized travel options that suit your needs. Our team of travel experts works tirelessly to bring you the best flight deals, curated tours, and exclusive travel packages, ensuring that your trip is seamless from start to finish. With years of experience in the industry and a commitment to exceptional customer service, we aim to inspire wanderlust and make your travel dreams a reality. Let us help you discover the world, one adventure at a time.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+<!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Get in touch with us via email: <a href="mailto:BAHALIMTRAVELS@GMAIL.COM">BAHALIMTRAVELS@GMAIL.COM</a></p>
+    
+    <!-- Address and Phone -->
+    <div class="contact-details">
+      <p><strong>Address:</strong> JEWALI BUS STAND, MAIN ROAD, NECHHWA, SIKAR, RAJASTHAN, 332026</p>
+      <p><strong>Mobile:</strong> +918005937040, 95871986006</p>
+    </div>
+  
+    <!-- Map -->
+    <div class="map-container" style="border: 3px solid #333;">
+      <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.69725403326!2d74.7675657!3d27.6188787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396b4545e0d9e9e9:0xa88b2c9c4a582fd0!2sJewli+Bus+Stop%2C+Main+Road%2C+Nechhwa%2C+Rajasthan+332026!5e0!3m2!1sen!2sin!4v1680321712316!5m2!1sen!2sin" 
+        width="100%" 
+        height="400" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="whatsapp-button">
+      <a href="https://wa.me/+918005937040" target="_blank">
+        <img src="img/whatsapp_icon.png" alt="Chat with us on WhatsApp" />
+      </a>
+    </div>
+    <p>&copy; 2025 Bahalim Travels. All rights reserved.</p>
+  </footer>
+
+  <script src="js/slider.js"></script>
+</body>
+</html>
